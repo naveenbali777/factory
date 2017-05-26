@@ -1,0 +1,9 @@
+.form-inline {
+    margin-bottom: 30px;
+}
+
+.box {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    padding: 30px;
+}

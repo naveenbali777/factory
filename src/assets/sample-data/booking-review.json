@@ -1,0 +1,146 @@
+[
+	{
+		"pipoInformation": {
+		    "title": "Purchase Invoice (PI) Information",
+		    "id":100,
+		    "children": {
+		      "piNumber": {
+		        "label": "PI Number",
+		        "type": "relative",
+			    "select":"Address",
+		        "id":1
+		      },
+		      "poNumber": {
+		        "label": "PO Number",
+		        "type": "textbox",
+		        "id":2
+		      },
+		      "productLine": {
+		        "label": "Product Line (Department)",
+		        "type": "select",
+		        "select": "Name",
+		        "from": "ProductLine",
+			    "relateTo":[1],
+		        "id":3
+		      },
+		      "productCategory": {
+		        "label": "Product Category",
+		        "type": "select",
+		        "select": "Name",
+		        "from": "ProductCategory",
+		        "id":4
+		      },
+		      "countryOfShipment": {
+		        "label": "Country of Shipment",
+		        "type": "select",
+		        "select": "Name",
+		        "from": "Country" ,
+		        "id":5
+		      },
+		      "pipoDetail": {
+			      "label": "Details of PI / PO",
+			      "type": "container",
+		        	"id":6,
+			      "children": {
+			        "styles": {
+			          "label": "Styles",
+			          "type": "container",
+			          "isList": true,
+		        		"id":7,
+			          "children": {
+			            "name": {
+			              "label": "Name",
+			              "type": "textbox",
+		        			"id":8
+			            },
+			            "inspectionLevel": {
+			              "label": "Inspection level",
+			              "type": "select",
+			              "select": "Name",
+			              "from": "InspectionLevel",
+		       			  "id":9
+			            },
+			            "quantity": {
+			              "label": "Quantity",
+			              "type": "textbox",
+			              "validator": "number",
+		        		  "id":10
+			            },
+			            "colors": {
+			              "label": "Colors",
+			              "type": "container",
+			              "isList": true,
+		        		"id":11,
+			              "children": {
+			                "color": {
+			                  "label": "Color",
+			                  "type": "textbox",
+		        			"id":12
+			                },
+			                "size": {
+			                  "label": "Size",
+			                  "type": "textbox",
+		        				"id":13
+			                },
+			                "quantity": {
+			                  "label": "Quantity",
+			                  "type": "textbox",
+			                  "validator": "number",
+		        				"id":14
+			                }
+			              }
+			            }
+			          }
+			        }
+			      }
+			    }
+		    }
+		},
+		"packingType": {
+	      "title": "Packing Type",
+	      "id":200,
+	      "children": {
+	        "packingType": {
+	          "label": "Packing Type",
+	          "type": "textbox",
+		        "id":15
+	        },
+	        "configuration": {
+	          "label": "Assortment",
+	          "type": "container",
+	          "isList": true,
+		        "id":16,
+	          "children": {
+	            "name": {
+	              "label": "Name",
+	              "type": "textbox",
+		        "id":17
+	            },
+	            "quantity": {
+	              "label": "Quantity",
+	              "type": "textbox",
+	              "validator": "number",
+		        "id":18
+	            },
+	            "configurationId": {
+	              "label": "Configuration ID",
+	              "type": "textbox",
+		        "id":19
+	            },
+	            "colors": {
+	              "label": "Colors",
+	              "type": "textbox",
+		        "id":20
+	            },
+	            "amount": {
+	              "label": "Amount",
+	              "type": "textbox",
+	              "validator": "number",
+		        "id":21
+	            }
+	          }
+	        }
+	      }
+	    }
+	}
+]

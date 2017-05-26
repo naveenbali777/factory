@@ -1,0 +1,19 @@
+@import "../scss/variables";
+
+.form-group {
+  .control-label {
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &.has-error {
+    .control-label {
+      color: $c-danger;
+    }
+
+    .error-message {
+      display: block;
+    }
+  }
+}

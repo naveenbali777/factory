@@ -1,0 +1,68 @@
+@import "variables";
+
+.ins-regular-button {
+  font-weight: bold;
+  padding: 7px 20px;
+  outline: none;
+  border: 0;
+  transition: all 300ms;
+  border-radius: 5px;
+}
+
+.ins-primary-button {
+  @extend .ins-regular-button;
+  background-color: $primary-color;
+  color: #fff;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+
+  &:active {
+    background: darken($primary-color, 20%);
+  }
+}
+
+.ins-accent-button {
+  @extend .ins-regular-button;
+  background-color: $c-accent;
+  color: #fff;
+
+  &:hover {
+    background: darken($c-accent, 10%);
+  }
+
+  &:active {
+    background: darken($c-accent, 20%);
+  }
+}
+
+.ins-default-button {
+  @extend .ins-regular-button;
+
+  background-color: $c-grey-300;
+  color: #fff;
+
+  &:hover {
+    background: darken($c-grey-300, 10%);
+  }
+
+  &:active {
+    background: darken($c-grey-300, 20%);
+  }
+}
+
+.ins-cancel-button {
+  @extend .ins-regular-button;
+  background-color: $c-grey-900;
+  color: #fff;
+
+  &:hover {
+    background: darken($c-grey-900, 10%);
+  }
+
+  &:active {
+    background: darken($c-grey-900, 20%);
+  }
+}
+

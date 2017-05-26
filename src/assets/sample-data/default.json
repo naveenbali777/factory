@@ -1,0 +1,246 @@
+{
+  "pipoInformation": {
+    "children": {
+      "piNumber": {
+        "mandatory": false,
+        "readonly": true
+      },
+      "poNumber": {
+        "mandatory": false,
+        "readonly": false
+      },
+      "productLine": {
+        "mandatory": true,
+        "readonly": false
+      },
+      "productCategory": {
+        "mandatory": false,
+        "readonly": false
+      },
+      "countryOfShipment": {
+        "mandatory": false,
+        "readonly": false
+      },
+      "pipoDetail": {
+        "styles": {
+          "mandatory": false,
+          "readonly": false,
+          "children": {
+            "name": {
+              "mandatory": true,
+              "readonly": false
+            },
+            "quantity": {
+              "mandatory": true,
+              "readonly": false
+            },
+            "inspectionLevel": {
+              "mandatory": false,
+              "readonly": false
+            },
+            "colors": {
+              "mandatory": false,
+              "readonly": false,
+              "children": {
+                "color": {
+                  "mandatory": true,
+                  "readonly": false
+                },
+                "size": {
+                  "mandatory": true,
+                  "readonly": false
+                },
+                "quantity": {
+                  "mandatory": true,
+                  "readonly": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "packingType": {
+    "children": {
+      "packingType": {
+        "mandatory": false,
+        "readonly": false
+      },
+      "configuration": {
+        "mandatory": false,
+        "readonly": false,
+        "children": {
+          "name": {
+            "mandatory": false,
+            "readonly": false
+          },
+          "quantity": {
+            "mandatory": false,
+            "readonly": false
+          },
+          "configurationId": {
+            "mandatory": false,
+            "readonly": false
+          },
+          "colors": {
+            "mandatory": false,
+            "readonly": false
+          },
+          "amount": {
+            "mandatory": false,
+            "readonly": false
+          }
+        }
+      }
+    }
+  },
+  "expectedDate": {
+    "children": {
+      "shipmentDate": {
+        "mandatory": true,
+        "readOnly": false
+      },
+      "inspectionDate": {
+        "mandatory": true,
+        "readOnly": false
+      }
+    }
+  },
+  "brandRetailerInformation": {
+    "children": {
+      "name": {
+        "mandatory": true,
+        "readOnly": false
+      },
+      "address": {
+        "mandatory": false,
+        "readOnly": false
+      },
+      "contact": {
+        "children": {
+          "name": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "mobile": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "telephone": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "email": {
+            "mandatory": false,
+            "readOnly": false
+          }
+        }
+      }
+    }
+  },
+  "supplierVendorInformation": {
+    "children": {
+      "name": {
+        "mandatory": true,
+        "readOnly": false
+      },
+      "address": {
+        "mandatory": false,
+        "readOnly": false
+      },
+      "contact": {
+        "children": {
+          "name": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "mobile": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "telephone": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "email": {
+            "mandatory": false,
+            "readOnly": false
+          }
+        }
+      }
+    }
+  },
+  "factoryInformation": {
+    "children": {
+      "name": {
+        "mandatory": false,
+        "readOnly": false
+      },
+      "address": {
+        "mandatory": false,
+        "readOnly": false
+      },
+      "contact": {
+        "children": {
+          "name": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "mobile": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "telephone": {
+            "mandatory": false,
+            "readOnly": false
+          },
+          "email": {
+            "mandatory": false,
+            "readOnly": false
+          }
+        }
+      }
+    }
+  },
+  "productInformation": {
+    "children": {
+      "techPack": {
+        "mandatory": false,
+        "readOnly": false
+      },
+      "purchaseOrder": {
+        "mandatory": false,
+        "readOnly": false
+      }
+    }
+  },
+  "additionalSpecialAttentions": {
+    "children": {
+      "style": {
+        "mandatory": false,
+        "readOnly": false,
+        "children": {
+          "attention": {
+            "mandatory": false,
+            "readOnly": false
+          }
+        }
+      }
+    }
+  },
+  "additionalTests": {
+    "children": {
+      "style": {
+        "mandatory": false,
+        "readOnly": false,
+        "children": {
+          "test": {
+            "mandatory": false,
+            "readOnly": false
+          }
+        }
+      }
+    }
+  }
+}

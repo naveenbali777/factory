@@ -1,0 +1,62 @@
+<div class="container" *ngIf="sections">
+  <section class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default main-body">
+                <div class="panel-heading text-center main-heading" >Notification Management</div>
+                <div class="panel-body" *ngFor="let sec of sections">
+                <div class="panel panel-default service-pad" *ngIf="sec.items">
+                    <div class="panel-heading sub-heading">{{sec.section_name}}</div>
+                    
+                    <div class="panel-body service-mar" *ngFor="let item of sec.items">
+                        <div class="panel panel-default">
+                <div class="panel-heading" (click)="item.more_detail = !item.more_detail;">                       
+                    <div class="col-md-4">
+                      <span class="blue-title">ItemID: </span>
+                      <span class="tit-value">{{item.item_id}}</span>
+                    </div>                            
+                    <div class="col-md-4">
+                      <span class="blue-title">Trigger Event: </span>
+                      <span class="tit-value">{{item.trigger_name}}</span> 
+                    </div>                                        
+                    <div class="col-md-4">
+                      <span class="blue-title pull-left">Enable/Disable Notification </span>
+                      <label class="switch-btn pull-right"(click)='$event.stopPropagation()'>
+                        <input type="checkbox" [checked]="item.status.enabled" (change)="onChange(item.item_id,item.trigger_name,$event.target.checked)">
+                        <div class="slider round"></div>
+                      </label>
+                    </div>
+                    
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body" *ngIf="item.more_detail">
+                  <div class="col-md-12 ele-mar">
+                    <div class="col-md-12 sub-title">EMAIL RECEIVER LIST</div>
+                    <div class="col-md-12 tit-value">{{item.receivers}}</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <span class="col-md-12 sub-title">EMAIL SUBJECT</span>
+                    <span class="col-md-12 tit-value">{{item.subject}}</span>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="col-md-12 sub-title">EMAIL CONTENT</span>
+                    <span class="col-md-12 tit-value">{{item.template.substring(0, 26) + ", cont..."}}</span>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="col-md-12 sub-title">SCHEDULE INFORMATION</span>
+                    <span class="col-md-12 tit-value">{{item.schedule}}</span>
+                  </div>                
+
+                </div> 
+                <div class="panel-footer sec-footer text-center" *ngIf="item.more_detail" (click)="redirect(item.section_code,item.item_id)">MORE DETAIL</div>
+                      </div>
+                    </div>                    
+
+                  </div>
+              </div>
+            </div>            
+        </div>
+    </section>
+</div>
+
+

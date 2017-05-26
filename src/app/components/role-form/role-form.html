@@ -1,0 +1,40 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12 page-title">
+      <span *ngIf="!role.id">Add Role</span>
+      <span *ngIf="role.id">Edit Role</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="role.name">
+      </div>
+
+      <h3>Permissions</h3>
+      <div class="modules">
+        <div *ngFor="let module of role.modules">
+          <h4>{{ module.name}}</h4>
+          <div class="permissions">
+            <div *ngFor="let permission of module.permissions" class="checkbox">
+              <label>
+                <input type="checkbox"
+                       name="permissions"
+                       value="{{ permission.id }}"
+                       [(ngModel)]="permission.granted" />
+                {{ permission.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button (click)="save()" class="btn btn-primary">Save</button>
+        <button (click)="cancel()" class="btn btn-default">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

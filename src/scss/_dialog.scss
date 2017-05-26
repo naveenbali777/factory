@@ -1,0 +1,17 @@
+
+.dialog-ok-btn, .dialog-cancel-btn {
+  text-transform: uppercase;
+  border: 0;
+}
+
+.dialog-ok-btn, .dialog-ok-btn:hover {
+  background-color: #84d085;
+  float: right;
+  margin-left: 15px;
+  color: #fff;
+}
+
+.dialog-cancel-btn, .dialog-cancel-btn:hover {
+  background-color: #94b3bb;
+  color: #fff;
+}

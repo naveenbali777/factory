@@ -1,0 +1,105 @@
+{
+	"inspectionInfo": {
+	"inpsectionDate": "21/01/2017",
+	"factoryName": "LIHUI",
+	"itemNumber": "ABCD-BCDA-DSAC",
+	"totalQuantity": 1234,
+	"unit": "pcs"
+	},
+	"completionInfo": {
+	"completeBy": "Carlos",
+	"date": "26/01/2017"
+	},
+	"productDesign": {
+		"result": [
+		{			
+			"piece": "Red 123",
+			"description": "ADDITIONAL SIZE LABLE DOESN'T",			
+			"pictures": {
+				"type": "image",
+				"data": "assets/images/design.png"
+			}		
+		}],
+		"correctiveInfo": {
+			"correctiveAction": "rework",
+			"rootCause": "",
+			"comments": [
+			{
+				"id": "commentid-xyzt",
+				"user": "Carlos",
+				"time": "10:33 AM 06 Jan 2017",
+				"message": "We want this rework."
+			},
+			{
+				"id": "commentid-xyzt",
+				"user": "Gleb",
+				"time": "16:44 AM 06 Jan 2017",
+				"message": "Ok."
+			}
+		  ]
+		}
+	},
+	"measurement": {
+		"result": [
+		{
+			"sample": "Red 123",
+			"measurement": "Front rise,including waistband",
+			"standard": 12,
+			"tolerance": 2,
+			"found": 9,
+			"occurrence": 9,
+			"pictures": {
+				"type": "image",
+				"data": "http://imagedomain/folder/image.jpeg"
+			}
+		}],
+		"correctiveInfo": {
+			"correctiveAction": "rework",
+			"rootCause": "",
+			"comments": [
+				{
+					"id": "commentid-xyzt",
+					"user": "Carlos",
+					"time": "10:33 AM 06 Jan 2017",
+					"message": "We want this rework."
+				},
+				{
+					"id": "commentid-xyzt",
+					"user": "Gleb",
+					"time": "16:44 AM 06 Jan 2017",
+					"message": "Ok."
+				}
+			]
+		}
+	},
+	"workmanship": {
+		"result": [
+			{
+				"sample": "Red 123",
+				"defectDescription": "Something wrong",
+				"pictures": {
+					"type": "image",
+					"data": "assets/images/wmship.png"
+				}
+			}],
+		"correctiveInfo": {
+			"correctiveAction": "rework",
+			"rootCause": "test",
+			"comments": [
+				{
+					"id": "commentid-xyzt",
+					"user": "Carlos",
+					"time": "10:33 AM 06 Jan 2017",
+					"message": "We want this rework."
+				},
+				{
+					"id": "commentid-xyzt",
+					"user": "Gleb",
+					"time": "16:44 AM 06 Jan 2017",
+					"message": "Ok."
+				}
+			]
+		}
+	}
+
+}

@@ -1,0 +1,109 @@
+<div class="container">
+	<div class="row">
+        <div class="col-lg-12 col-md-12">
+            
+            <div class="panel panel-defalut">
+                <div class="panel-heading text-center main-heading"> Inspection Datasource</div>
+                <div class="panel-body">
+
+                   <div class="col-md-12 ele-mar">
+
+                        <div class="col-md-6 sub-heading">Products</div>
+
+                        <div class="col-md-6 ele-mar">
+                           <span class="blue-ftitle pull-right" (click) = "fileCheck.productFile = !fileCheck.productFile">Import CSV file <i class="glyphicon glyphicon-copy icon"></i></span>
+                           <span class="blue-ftitle pull-right" (click)="download('products')">Download CSV file <i class="glyphicon glyphicon-download-alt icon"></i></span>
+                           <div class="import-file" *ngIf="fileCheck.productFile">
+                               <input type="file" (change)="onChange($event.target.files,'products')"/>
+                           </div>
+                        </div>
+
+                        <div class="col-md-12 ele-mar" *ngIf="csvProductData">
+                            <table class="table table-striped table-hover">                            
+                                <thead>
+                                    <tr class="table-head" >
+                                       <th width="30%">Product Category ID</th>
+                                       <th>Product Category Name</th>
+                                       <th>Product Category Description</th>
+                                   </tr>
+                                </thead>
+
+                                <tbody *ngFor="let item of csvProductData">
+                                    <tr  (click) = "item.status = !item.status">                                        
+                                        <th> 
+                                        <i class="ticon glyphicon" [class.glyphicon-expand]="item.status == false"
+                                        [class.glyphicon-collapse-down]="item.status == true" ></i> Product Line ID / Name: <br>
+                                        <span class="pdes">Product Line Description:</span>
+                                        
+                                        </th>
+                                        <td colspan="2" >{{item.productLineId}} / {{item.info.productName}} <br>
+
+                                        {{item.info.productDescription}}
+                                        </td>
+
+                                    </tr>
+                                    <template [ngIf]="item.status">
+                                        <tr *ngFor="let prodt of item.info.categories">
+                                            <td>{{prodt.productCategoryId}}</td>
+                                            <td>{{prodt.productCategoryName}}</td>
+                                            <td>{{prodt.productCategoryDescription}}</td>                                        
+                                        </tr>                                                             
+                                     </template>            
+                                </tbody>
+                                
+                            </table>
+
+                        </div>  
+
+                    </div>
+
+                    <div class="col-md-12 ele-mar">
+
+                        <div class="col-md-6 sub-heading">Defects</div>
+
+                        <div class="col-md-6 ele-mar">
+                            <span class="blue-ftitle pull-right" (click) = "fileCheck.defectFile = !fileCheck.defectFile">Import CSV file <i class="glyphicon glyphicon-copy icon"></i></span>
+                            <span class="blue-ftitle pull-right" (click)="download('defects')">Download CSV file <i class="glyphicon glyphicon-download-alt icon"></i></span>
+                            <div class="import-file" *ngIf="fileCheck.defectFile">
+                                <input type="file" (change)="onChange($event.target.files,'defects')"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 ele-mar" *ngIf="csvDefectsData">
+                            <table class="table table-striped table-hover">                            
+                                <thead>
+                                    <tr class="table-head" >
+                                        <th width="30%">Defect ID</th>
+                                        <th >Defect Item Name</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody *ngFor="let item of csvDefectsData">
+                                    <tr (click) = "item.status = !item.status">                                        
+                                        <th> 
+                                        <i class="ticon glyphicon" [class.glyphicon-expand]="item.status == false"
+                                        [class.glyphicon-collapse-down]="item.status == true" ></i> Defect Category ID / Name :</th>
+                                        <td>{{item.defectCategoryId}} / {{item.info.defectCategoryName}}</td>
+                                    </tr>
+                                    <template [ngIf]="item.status">
+                                        <tr *ngFor="let deft of item.info.defects">
+                                            <td>{{deft.defectId}}</td>
+                                            <td>{{deft.defectDescription}}</td>                                        
+                                        </tr>                         
+                                     </template>            
+                                </tbody>
+                                
+                            </table>                                             
+
+
+                        </div>  
+
+                    </div>
+
+
+                </div>
+            </div>            
+
+        </div>
+    </div>
+</div>

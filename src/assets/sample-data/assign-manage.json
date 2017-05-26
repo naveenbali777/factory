@@ -1,0 +1,61 @@
+[{
+    "id":"Assign-00001",
+    "name": "Germaine Osborn",
+    "supplier": "Tristique",
+    "location": "Lesotho",
+    "status": "Completed",
+    "date": "2015/02/19",
+    "client": "malino",
+    "factory": "China"
+  },
+  {
+    "id":"Assign-00002",
+    "name": "Laura Macias",
+    "supplier": "Cras",
+    "location": "Bouvet Island",
+    "status": "Assigned",
+    "date": "2016/01/19",
+    "client": "Reuben",
+    "factory": "Ghana"
+  },
+  {
+    "id":"Assign-00003",
+    "name": "Hunter Walter",
+    "supplier": "Duis",
+    "location": "Myanmar",
+    "status": "Draft",
+    "date": "2015/07/29",
+    "client": "Albert",
+    "factory": "Institute"
+  },
+  {
+    "id":"Assign-00004",
+    "name": "Non Industries",
+    "supplier": "Phasellus",
+    "location": "Mauritania",
+    "status": "Pending",
+    "date": "2015/01/10",
+    "client": "Baker",
+    "factory": "Idola"
+  },
+  {
+    "id":"Assign-00005",
+    "name": "Angela Carlson",
+    "supplier": "Donec",
+    "location": "Brazil",
+    "status": "Draft",
+    "date": "2016/05/23",
+    "client": "Mckay",
+    "factory": "Jayme"
+  },
+  {
+    "id":"Assign-00006",
+    "name": "Wesley Cobb",
+    "supplier": "Ullamcorper",
+    "location": "Paraguay",
+    "status": "Assigned",
+    "date": "2016/07/05",
+    "client": "Lobortis",
+    "factory": "Zambia"
+  }
+]

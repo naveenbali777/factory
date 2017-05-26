@@ -1,0 +1,102 @@
+>>> body { 
+  background-color: #f4f6f9;
+  font-family: "Helvetica";
+}
+
+.container {
+  margin-top: 16px;
+}
+
+.main-heading {
+  font-weight: bold;
+  font-size: 28px;
+  background-color: #147794;
+  color:#fff;
+}
+
+.ele-mar {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.sub-heading {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.blue-ftitle {
+  color: #0072bc;
+  font-size:12px;
+  margin-left: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon {
+  color: #99b3bd;
+}
+
+.import-file {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 250px;
+  z-index: 999;
+}
+
+.table-head {
+  background-color:#dadde6;
+  font-size: 14px;
+}
+
+table {
+  border: 1px double #ddd;
+}
+
+table th {
+  text-align: left;
+}
+
+table thead th {
+  border-bottom: 3px solid #147794;
+  padding-left: 120px;
+  text-align: left;
+}
+
+table td {
+  /* border-bottom: 1px solid #fff; */
+  text-align: left;
+  padding-left: 120px;
+}
+
+.table-striped > tbody > tr:first-child > th {
+  text-align: left;
+  padding-left: 25px;  
+  cursor: pointer;
+}
+
+.table-striped > tbody > tr:first-child > td {
+  padding-left: 0px;  
+  cursor: pointer;
+}
+
+.table-striped > tbody > tr:first-child{
+  background-color: #f4f6f9;
+  font-size: 14px;  
+}
+.table-striped > tbody > tr {
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.ticon {
+  color: #999;
+  font-size: 20px;
+}
+
+.pdes{
+  margin-left: 22px;
+}

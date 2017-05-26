@@ -1,0 +1,30 @@
+[
+	{
+		"title":"Purchase Invoice (PI) Information",
+		"items":
+		[
+			{ "label":"PI Number","type":"file","validator":"none", "readonly":true, "mandatory":true},
+			{ "label":"PO Number","type":"textbox","validator":"none" },
+			{ "label":"Product Line (Department)","type":"select", "category":"ProductLine", "validator":"none" },
+			{ "label":"Product Category", "type":"select", "category":"ProductLine", "validator":"required"},
+			{ "label":"Country of Shipment","type":"select","validator":"none"},
+			{ "label":"Details of PI / PO", "type":"container",
+				"items":[
+					{ "label":"Styles", "type":"container", 
+						"items":[
+							{ "label":"Name","type":"textbox","validator":"required" },
+							{ "label":"Inspection level","type":"select","validator":"none" },
+							{ "label":"Quantity","type":"textbox","validator":"required" },
+							{ "label":"Colors","type":"container", 
+								"items":[
+									{ "label":"Color","type":"textbox","validator":"none" },
+									{ "label":"Quantity","type":"textbox","validator":"required" }
+								] 
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

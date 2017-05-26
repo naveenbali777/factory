@@ -1,0 +1,7 @@
+.mfp-bg {
+  z-index: 1499;  // keeping z-index more thant that of bootstrap modals to keep the magnific popup visible when opened from modal
+}
+
+.mfp-wrap {
+  z-index: 1500; // keeping z-index more thant that of bootstrap modals to keep the magnific popup visible when opened from modal
+}

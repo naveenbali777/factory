@@ -1,0 +1,317 @@
+<div class="container">
+
+	<!-- Corrective START -->
+
+	<section class="row grp-mar">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title main-title">Corrective and Preventive Action Form 
+                    <span class="pull-right">CPA No27</span></h3>
+                    <span class="sub-title">2246-PSI-HK16 MEN {{data.inspectionInfo.itemNumber}}</span>
+                </div>                
+            </div>
+            <div class="panel-body ele-mar">
+				<div class="des factory-title-box blue-txt">
+					<span class="glyphicon glyphicon-home"></span>
+					<span class="factory-title">{{ data.inspectionInfo.factoryName }}</span>
+				</div>
+
+				<div class="col-ms-12">
+					<div class="col-md-5 gen-details" >
+						<span class="pull-left">INSPECTION DATE </span>
+						<span class="pull-right"> {{data.inspectionInfo.inpsectionDate}}</span>
+					</div>
+					<div class="col-md-2"></div>
+
+					<div class="col-md-5 gen-details" >
+						<span class="pull-left">ASSIGNED TO* </span>
+						<span class="pull-right"> Supplier/Factory</span>
+					</div>
+					
+					<div class="col-md-5 gen-details" >
+						<span class="pull-left">ITEM NUMBER </span>
+						<span class="pull-right"> {{data.inspectionInfo.itemNumber}}</span>
+					</div>
+					<div class="col-md-2"></div>					
+
+					<div class="col-md-5 gen-details" >
+						<span class="pull-left">DATE</span>
+						<span class="pull-right"> {{data.completionInfo.date}}</span>
+					</div>
+					
+
+					<div class="col-md-5 gen-details" >
+						<span class="pull-left">TOTAL QUANTITY</span>
+						<span class="pull-right"> {{data.inspectionInfo.totalQuantity}} {{data.inspectionInfo.unit}}</span>
+					</div>
+
+				</div>
+			</div>
+        </div>
+        <br class="clearfix">
+    </section>
+
+	<!-- Corrective END -->
+	
+	<!-- NON Conformities START -->
+
+	<section class="row grp-mar">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title main-title">Non Conformites</h4>
+                </div>                 
+            </div>
+
+            <!-- Workmanship START -->					
+
+            <div class="panel-body grp-mar">
+				<div class="col-md-12">
+					<div class="main-heading ele-h-mar">Workmanship</div>
+					<table class="table table-striped table-hover table-ch ele-mar">
+						<thead>
+							<tr class="table-head">
+								<th>No.</th>
+								<th></th>
+								<th>Critical</th>
+								<th>Major</th>
+								<th>Minor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>AQL</td>
+								<td>0.1</td>								
+								<td>2.5</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Defect Found</td>
+								<td>0</td>								
+								<td>8</td>
+								<td>13</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Max.Allowed</td>
+								<td>0</td>								
+								<td>7</td>
+								<td>10</td>
+							</tr> 
+						</tbody>
+					</table>
+				</div>		
+
+				<div class="col-md-6 ele-mar" *ngFor="let item of data.workmanship.result" >
+					<template [ngIf]="item.defectDescription">
+						<h4 class="blue-title ele-h-mar">Description</h4>
+						<div class="des tablet des-text ele-mar">{{item.defectDescription}}</div>
+					</template>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-4 ele-mar">
+					<h4 class="blue-title ele-h-mar">Piece: 1pcs</h4>
+					<div class="des tablet yellow-major ele-mar">Major:1</div> 
+				</div>
+				<div class="col-md-6 ele-mar" >
+					<h4 class="blue-title ele-h-mar">Correction Action</h4>
+					<select class="seclect-hw" (change)="onActionChange($event.target.value) " [disabled]="clientView">
+						<option [value]="''">Please Select Action</option>
+						<option [value]="'rework'" [selected]="'rework' === data.workmanship.correctiveInfo.correctiveAction">Rework Units</option>
+						<option [value]="'defect'" [selected]="'defect' === data.workmanship.correctiveInfo.correctiveAction">Defect/Destroy Units</option>
+						<option [value]="'remake'" [selected]="'remake' === data.workmanship.correctiveInfo.correctiveAction">Remake Units</option>
+						<option [value]="'acceptance'" [selected]="'acceptance' === data.workmanship.correctiveInfo.correctiveAction">Request acceptace-no further action required</option>
+						<option [value]="'other'" [selected]="'other' === data.workmanship.correctiveInfo.correctiveAction">Other</option>
+					</select>
+					<br>
+					<div class="form-group ele-h-mar" *ngIf="selectOther">
+					    <input type="text" class="form-control form-input" [readonly]="clientView">
+				    </div>
+					<h4 class="blue-title ele-h-mar">Root Cause</h4>
+					<div class="form-group ele-mar">
+					    <input type="text" class="form-control form-input" [value]="data.workmanship.correctiveInfo.rootCause" [readonly]="clientView">
+				    </div> 
+					<h4 class="blue-title ele-h-mar">Comment 
+						<span class="space"></span>
+						<span class="action-plus" (click)="showComment = !showComment;"><i class="glyphicon glyphicon-plus"></i></span>
+					</h4>
+
+					<div class="form-group ele-mar" *ngIf="showComment">
+					   <textarea class="form-control custom-control ele-mar" rows="3"></textarea> 
+					   <span class="btn btn-primary ele-mar">Save</span> 
+				    </div>			    
+
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-4 ele-mar" *ngFor="let pic of data.workmanship.result">
+					<template [ngIf]="pic.pictures.data">
+						<img [src]="pic.pictures.data" alt="placeholder" class="img ele-mar">
+					</template>
+				</div>
+				<div class="col-md-12">
+					<div class="grey pad-box ele-h-mar" *ngFor="let comment of data.workmanship.correctiveInfo.comments">
+						<span class="blue-txt">> {{comment.user}}</span> <span>{{comment.time}}: {{comment.message}}</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<!-- Workmanship END -->
+		
+			
+			<!-- Measurement START --> 
+
+			<div class="panel-body grp-mar">
+				<div class="col-md-12">
+					<div class="main-heading ele-h-mar">Measurements</div>
+					<span class="sub-heading ele-mar">Details:</span>
+					<table class="table table-striped table-hover table-ch ele-mar" >
+						<thead>
+							<tr class="table-head" *ngIf="data.measurement.result.length > 0">
+								<th>No.</th>
+								<th>Measurements</th>
+								<th>Standard</th>
+								<th>Tolerance</th>
+								<th>Found</th>
+								<th>Occurrence</th>
+								<th>Picture</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let mt of data.measurement.result; let i = index ">
+								<td>{{i + 1}}</td>
+								<td>{{mt.measurement}}</td>
+								<td>{{mt.standard}}</td>
+								<td>{{mt.tolerance}}</td>								
+								<td>{{mt.found}}</td>
+								<td>{{mt.occurrence}}</td>								
+								<td>-</td>
+							</tr>							
+						</tbody>
+					</table>
+				</div>				
+
+				<div class="col-md-12">
+					<h4 class="blue-title ele-h-mar">Correction Action</h4>
+					<select class="seclect-hw" (change)="onActionChange($event.target.value) " [disabled]="clientView">
+						<option [value]="''">Please Select Action</option>
+						<option [value]="'rework'" [selected]="'rework' === data.measurement.correctiveInfo.correctiveAction">Rework Units</option>
+						<option [value]="'defect'" [selected]="'defect' === data.measurement.correctiveInfo.correctiveAction">Defect/Destroy Units</option>
+						<option [value]="'remake'" [selected]="'remake' === data.measurement.correctiveInfo.correctiveAction">Remake Units</option>
+						<option [value]="'acceptance'" [selected]="'acceptance' === data.measurement.correctiveInfo.correctiveAction">Request acceptace-no further action required</option>
+						<option [value]="'other'" [selected]="'other' === data.measurement.correctiveInfo.correctiveAction">Other</option>
+					</select>
+					<br>
+					<div class="form-group ele-h-mar" *ngIf="selectOther">
+					    <input type="text" class="form-control form-input" [readonly]="clientView">
+				    </div>
+					<h4 class="blue-title ele-h-mar">Root Cause</h4>
+					<div class="form-group ele-mar">
+					    <input type="text" [readonly]="clientView" class="form-control form-input" [value]="data.measurement.correctiveInfo.rootCause"  >
+				    </div>
+					<h4 class="blue-title ele-h-mar">Comment 
+						<span class="space"></span>
+						<span class="action-plus" (click)="showComment = !showComment;"><i class="glyphicon glyphicon-plus"></i></span>
+					</h4>
+
+					<div class="form-group ele-mar" *ngIf="showComment">
+					   <textarea class="form-control custom-control ele-mar" rows="3"></textarea> 
+					   <span class="btn btn-primary ele-mar">Save</span> 
+				    </div>			    
+
+				</div>
+				
+				<div class="col-md-12">
+					<div class="grey pad-box ele-h-mar" *ngFor="let comment of data.measurement.correctiveInfo.comments">
+						<span class="blue-txt">> {{comment.user}}</span> <span>{{comment.time}}: {{comment.message}}</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<!-- Measurement END -->
+
+			<!-- "Product Design START -->
+
+			<div class="panel-body grp-mar">
+				<div class="col-md-12 ele-mar">
+					<div class="main-heading">Product Design, Material & Trims</div>					
+				</div>				
+
+				<div class="col-md-6 ele-mar" *ngFor="let item of data.productDesign.result" >
+					<template [ngIf]="item.description">
+						<h4 class="blue-title ele-h-mar">Description</h4>
+						<div class="des tablet des-text ele-mar">{{item.description}}</div>
+					</template>
+				
+					<h4 class="blue-title ele-h-mar">Correction Action</h4>
+					<select class="seclect-hw" (change)="onActionChange($event.target.value) " [disabled]="clientView">
+						<option [value]="''">Please Select Action</option>
+						<option [value]="'rework'" [selected]="'rework' === data.productDesign.correctiveInfo.correctiveAction">Rework Units</option>
+						<option [value]="'defect'" [selected]="'defect' === data.productDesign.correctiveInfo.correctiveAction">Defect/Destroy Units</option>
+						<option [value]="'remake'" [selected]="'remake' === data.productDesign.correctiveInfo.correctiveAction">Remake Units</option>
+						<option [value]="'acceptance'" [selected]="'acceptance' === data.productDesign.correctiveInfo.correctiveAction">Request acceptace-no further action required</option>
+						<option [value]="'other'" [selected]="'other' === data.productDesign.correctiveInfo.correctiveAction">Other</option>
+					</select>
+					<br>
+					<div class="form-group ele-h-mar" *ngIf="selectOther">
+					    <input type="text" class="form-control form-input" [readonly]="clientView">
+				    </div>
+					<h4 class="blue-title ele-h-mar">Root Cause</h4>
+					<div class="form-group ele-mar">
+					    <input type="text" [readonly]="clientView" class="form-control form-input" [value]="data.productDesign.correctiveInfo.rootCause" >
+				    </div>
+					<h4 class="blue-title ele-h-mar">Comment 
+						<span class="space"></span>
+						<span class="action-plus" (click)="showComment = !showComment;"><i class="glyphicon glyphicon-plus"></i></span>
+					</h4>
+
+					<div class="form-group ele-mar" *ngIf="showComment">
+					   <textarea class="form-control custom-control ele-mar" rows="3"></textarea> 
+					   <span class="btn btn-primary ele-mar">Save</span> 
+				    </div>			    
+
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-4" *ngFor="let pic of data.productDesign.result">
+					<template [ngIf]="pic.pictures.data">
+						<img [src]="pic.pictures.data" alt="placeholder" class="img ele-mar">
+					</template>
+				</div>
+				<div class="col-md-12">
+					<div class="grey pad-box ele-h-mar" *ngFor="let comment of data.productDesign.correctiveInfo.comments">
+						<span class="blue-txt">> {{comment.user}}</span> <span>{{comment.time}}: {{comment.message}}</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<!-- "Product Design END -->
+
+			<div class="panel-body grp-mar">
+
+				<div class="pull-right grp-mar" *ngIf="!clientView">
+					<span class="btn btn-txt-color grey-dark">Cancel</span>
+					<span class="btn btn-color btn-txt-color">Submit</span>
+				</div>
+
+				<div class="pull-right grp-mar" *ngIf="clientView">
+					<span class="btn btn-primary grey blue-btn-text">C.A.R Reminder</span>
+					<span class="btn btn-primary grey blue-btn-text">Re-inspect</span>
+					<span class="btn btn-color btn-txt-color">Approve</span>
+					<span class="btn btn-danger">Reject</span>
+				</div>
+
+			</div>
+			
+        </div>
+
+
+    </section>
+
+	<!-- NON Conformities END -->
+	
+</div>

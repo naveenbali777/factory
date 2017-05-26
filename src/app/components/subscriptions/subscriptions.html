@@ -1,0 +1,32 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12 page-title">
+      Subscriptions
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 70%">Organization</th>
+            <th style="width: 10%">Plan</th>
+            <th style="width: 10%">Start</th>
+            <th style="width: 10%">End</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subscription of subscriptions">
+            <td>
+              <a [routerLink]="['/subscriptions', subscription.id]">{{ subscription.organization.name }}</a>
+            </td>
+            <td style="white-space: nowrap">{{ subscription.plan.name }}</td>
+            <td style="white-space: nowrap">{{ subscription.startsOn | date: 'dd-MMM-yyyy' }}</td>
+            <td style="white-space: nowrap">{{ subscription.endsOn | date: 'dd-MMM-yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

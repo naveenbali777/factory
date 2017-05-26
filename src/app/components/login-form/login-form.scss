@@ -1,0 +1,136 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar-default {
+  background-color: #fff;
+  /*box-shadow: 0 0.15em 0.35em 0 rgba(0,0,0,0.135);*/
+  border-color: #bfbfbf;
+  border-top: 1px solid #bfbfbf !important;
+  border-bottom: 1px solid #bfbfbf !important;
+}
+
+.navbar-brand {
+  padding: 3px 3px 3px 18px;
+}
+
+.navbar-brand > img {
+  max-height: 100%;
+  min-height: 100%;
+}
+
+.nav > li {
+  position: relative;
+  display: block;
+  box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.065), inset -1px 0 0 0 rgba(255, 255, 255, 0.065);
+}
+
+.navbar-default .nav li a {
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #333;
+  padding: 15px 30px;
+  font-size: 12px;
+  line-height: 20px;
+  border-left: 1px solid #bfbfbf;
+}
+
+.navbar-default .nav li a.active {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+.page-title {
+  background: #fff;
+  height: 45px;
+  color: #333;
+  font-size: 26px;
+  font-weight: 300;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.stat_row {
+  margin-bottom: 20px;
+  margin-top: 20px
+}
+
+.stat_row .stat_tile {
+  padding: 30px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.stat_row .stat_tile.blue {
+  background-color: #30a5ff;
+}
+
+.stat_row .stat_tile.orange {
+  background-color: #ffb53e;
+}
+
+.stat_row .stat_tile.green {
+  background-color: #1ebfae;
+}
+
+.stat_row .stat_tile.red {
+  background-color: #f9243f;
+}
+
+.stat_row .stat_tile.lime {
+  background-color: #cddc39;
+}
+
+.stat_row .stat_tile.pink {
+  background-color: #e91e63;
+}
+
+.stat_row .stat_tile .stat_top {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.stat_row .stat_tile .stat_mid {
+  font-size: 30px;
+  line-height: 47px;
+  font-weight: 600;
+}
+
+.stat_row .state_tile .stat-bottom {
+  font-size: 12px
+}
+
+.container.main {
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+.container-fluid {
+    background: url(assets/images/bg.png);
+    background-size: cover;
+    padding-top: 60px;
+    min-height: 100%;
+}
+
+.logo {
+    margin-top: 20px;
+}
+
+.login-form {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 50px;
+    margin-top: 15px;
+}

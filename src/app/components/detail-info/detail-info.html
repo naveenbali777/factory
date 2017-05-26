@@ -1,0 +1,102 @@
+<div class="container" *ngIf="data">
+	<section class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-defalut">
+                <div class="panel-heading main-heading"> <i class="fa fa-angle-right"></i> Detail Information</div>
+                <div class="panel-body" >
+
+					<div class="col-md-4">
+	                	<h4 class="blue-title">ItemID</h4>
+						<div class="form-group">
+						    <input type="text" class="form-control form-input" [(ngModel)]="data.item_id" disabled>
+					    </div>
+					</div>
+					<div class="col-md-4">
+	                	<h4 class="blue-title">Trigger Event</h4>
+						<div class="form-group icon-div">
+						    <input type="text" #tevent class="form-control form-input" [(ngModel)] = "data.trigger_name" [disabled] = "editField" (keydown) = "saveValue('trigger_name', $event.keyCode); ($event.keyCode == 13) ? (tevent.disabled = true) : ''"> 
+						    <span class="blue-icon" (click) = "tevent.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+					    </div>
+					</div>                   		      		
+					<div class="col-md-4"><br><br>
+						<span class="blue-title pull-left">Enable/Disable Notification </span>
+						<label class="switch-btn pull-right">
+						  <input type="checkbox" [checked]="data.status.enabled" (change)="onChange($event.target.checked)">
+						  <div class="slider round"></div>
+						</label>
+					</div>
+					
+					<div class="clearfix"></div>
+							
+					<div class="col-md-4">
+	                	<h4 class="blue-title">Email Sender</h4>
+						<div class="form-group icon-div">
+						    <input type="text" #sender class="form-control form-input" [(ngModel)] = "data.sender" [disabled] = "editField" (keydown)="saveValue('sender', $event.keyCode); ($event.keyCode == 13) ? (sender.disabled = true) : ''"> 
+						    <span class="blue-icon" (click) = "sender.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+					    </div>
+					</div>
+
+					<div class="col-md-8">
+	                	<h4 class="blue-title">Email Subject</h4>
+						<div class="form-group icon-div">
+						    <input type="text" #subject class="form-control form-input" [(ngModel)]="data.subject" [disabled] = "editField" (keydown)="saveValue('subject', $event.keyCode); ($event.keyCode == 13) ? (subject.disabled = true) : ''">
+						    <span class="blue-icon" (click) = "subject.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+					    </div>
+					</div>
+					
+
+					<div class="col-md-12">
+	                	<h4 class="blue-title">Email Receiver List</h4>
+						<div class="email-box">
+							<div class="col-md-1">Send to:</div>
+							<div class="col-md-11 icon-div">
+								<input type="text" #recevier class="form-control form-input in-white" [(ngModel)]="data.receivers" [disabled] = "editField" (keydown)= "saveValue('recevier', $event.keyCode); ($event.keyCode == 13) ? (recevier.disabled = true) : ''">
+								<span class="white-icon pull-right" (click) = "recevier.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+							</div>
+							<div class="col-md-1">Cc:</div>
+							<div class="col-md-11 icon-div">
+								<input type="text" #ccValue  class="form-control form-input in-white" [(ngModel)]="data.cc" [disabled] = "editField" (keydown)="saveValue('cc', $event.keyCode); ($event.keyCode == 13) ? (ccValue.disabled = true) : ''">
+								<span class="white-icon pull-right" (click) = "ccValue.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+							</div>
+							<div class="col-md-1">Bcc:</div>
+							<div class="col-md-11 icon-div">
+								<input type="text" #bccValue class="form-control form-input in-white" [(ngModel)]="data.bcc" [disabled] = "editField" (keydown)="saveValue('bcc', $event.keyCode); ($event.keyCode == 13) ? (bccValue.disabled = true) : ''">
+								<span class="white-icon pull-right" (click) = "bccValue.disabled = false"><i class="glyphicon glyphicon-pencil"></i></span>
+							</div>
+							<div class="clearfix"></div>
+						</div>	               	
+					</div>					
+					
+					<div class="col-md-8 ele-mar">
+						<h4 class="blue-title">Content Template</h4>
+						<div class="panel-body preview-box">
+	       		      		<div class="panel panel-default">
+								<div class="panel-heading preview-title">Preview <span class="prev-icon pull-right" (click) = "template.disabled = false" ><i class="glyphicon glyphicon-pencil"></i></span></div>
+								<div class="panel-body">
+									<div class="form-group">
+									   <textarea #template class="form-control custom-control ele-mar" rows="12" [disabled] = "editField" [(ngModel)]="data.template"></textarea>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 ele-mar">
+						<h4 class="blue-title">Schedule Information</h4>	
+						<div class="form-group icon-div">					
+						    <input type="text" #caln [value]="data.schedule" class="form-control form-input" [(ngModel)]="myDate" ng2-datetime-picker readonly close-on-select="false" />
+						    <span class="blue-icon"><i class="fa fa-calendar" (click)="caln.click()"></i></span>		
+						</div>			    
+					</div>
+
+					<div class="col-md-12">
+						<div class="pull-right">							
+							<span class="btn custom-btn" *ngIf="editField" (click)="editField = false">EDIT</span>
+							<span class="btn custom-btn" *ngIf="!editField" (click) = "saveInfo()">SAVE</span>
+						</div>
+					</div>
+
+                </div>
+            </div>            
+        </div>
+    </section>
+</div>

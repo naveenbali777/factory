@@ -1,0 +1,87 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12 page-title">
+      <span>{{ currentDataGrants?.attribute }} Grants &raquo; {{ user?.name }}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="alert alert-warning" *ngIf="changed">
+        Warning! Changes to the user's data grants will not be saved until the Save button is clicked.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table" *ngIf="currentDataGrants?.values?.length > 0">
+        <thead>
+          <tr>
+            <th style="width: 98%">Granted {{ currentDataGrants?.attribute }}</th>
+            <th style="width: 2%">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of currentDataGrants?.values">
+            <td>{{ value.name }}</td>
+            <td><a href="javascript:void(0)" (click)="revoke(value)">Revoke</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="well bg-success" *ngIf="!currentDataGrants?.values?.length">
+        No {{ currentDataGrants?.attribute }} granted.
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-inline">
+          <h4>Search {{ currentDataGrants?.attribute }} to Grant Access</h4>
+          <div class="form-group">
+            <label for="term" class="sr-only">Name</label>
+            <input type="text" [(ngModel)]="term" id="name"
+                   class="form-control" style="width: 500px"
+                   placeholder="Search by name">
+          </div>
+          <button (click)="search()" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="searched">
+      <div class="row">
+        <div class="col-md-8">
+          <div *ngIf="searchResults.length > 0">
+            <h4> Search Results </h4>
+            <table class="table">
+              <tbody>
+                <tr *ngFor="let value of searchResults">
+                  <td style="width: 98%">{{ value.name }}</td>
+                  <td style="width: 2%" class="text-center">
+                    <a href="javascript:void(0)" *ngIf="!value.isGranted" (click)="grant(value)">Grant</a>
+                    <span class="label label-success" *ngIf="value.isGranted">Granted</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="well bg-success" *ngIf="!searchResults.length">
+            No {{ currentDataGrants?.attribute }} found. Perhaps check the spelling and try again.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="actions">
+        <button (click)="save()" class="btn btn-primary">Save</button>
+        <button (click)="cancel()" class="btn btn-default">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

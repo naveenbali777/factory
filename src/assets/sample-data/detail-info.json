@@ -1,0 +1,33 @@
+{
+  "section_code": "123",
+  "item_id": "bookig-5593",
+  "trigger_event": "Booking Created",
+  "sender": [
+    "no-reply@inpectorio.com"
+  ],
+  "receivers": [
+    "PhamTran", "Alexa", "Nguyen Quana", "Minolta", "Pentax", "Sony", "Panasonic", "Lumix"
+  ],
+  "cc": [
+    "person1", "person2", "person3", "person4"
+  ],
+  "bcc": [
+    "person1", "person2", "person3", "person4", "person5"
+  ],
+  "phone_numbers": [
+    "string"
+  ],
+  "devices": [
+    {
+      "baidu_user_id": "string",
+      "baidu_channel_id": "string"
+    }
+  ],
+  "subject": "Booking Inspection Created",
+  "template": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus volutpat ante vitae lectus ultrices, id lobortis eros sollicitudin. Aliquam vel purus eget nibh condimentum lacinia. Fusce ornare in nisi at laoreet. Sed fermentum at lectus eget porta. Aenean at massa turpis. Aliquam tempus turpis ut odio volutpat, sit amet vestibulum sem fermentum. Nam leo massa, malesuada at commodo id, ultrices a nibh. <br> Sed suscipit faucibus erat, consectetur bibendum mi elementum mattis. Sed lacus diam, blandit ac nibh ut, porttitor finibus nibh. Fusce consectetur, turpis vitae vehicula convallis, diam nulla varius leo, ut lobortis velit arcu sed mi. Integer euismod tortor nec ex condimentum, in vulputate nibh condimentum. Fusce pulvinar efficitur mi scelerisque vehicula. Praesent lobortis ut tortor eu viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed massa non nisi tincidunt dapibus.",
+  "schedule": "2017-01-18",
+  "more_detail": true,
+  "status": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,53 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12 page-title">
+      Users
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/users/org">Own Users</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/user-invitations">Invited Users</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/users/orgs/select">Sub-Organization Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table users" *ngIf="userInvitations?.length > 0">
+        <thead>
+          <tr>
+            <th style="width: 50%">Name</th>
+            <th style="width: 50%">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let userInvitation of userInvitations">
+            <td>{{ userInvitation.name }}</td>
+            <td>{{ userInvitation.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="well" *ngIf="!userInvitations || !userInvitations?.length || userInvitations?.length == 0">
+        There are no invitations.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="actions">
+        <a routerLink="/user-invitations/new" class="btn btn-primary">Invite User</a>
+      </div>
+    </div>
+  </div>
+</div>

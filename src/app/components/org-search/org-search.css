@@ -1,0 +1,22 @@
+.form-inline {
+    margin-bottom: 30px;
+}
+
+.table .fa-circle {
+    color: #aaa;
+}
+
+.table .fa-institution {
+    color: #fff;
+}
+
+.well p {
+    margin-bottom: 0;
+}
+
+.org-name {
+    display: block;
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}

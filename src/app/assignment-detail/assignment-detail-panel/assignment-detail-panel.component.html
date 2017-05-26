@@ -1,0 +1,25 @@
+<div class="assignment-detail-panel-component">
+  <div class="content-container" *ngIf="assignmentDetailForm">
+      <form
+        name="assignment-detail-form"
+        novalidate
+        [formGroup]="assignmentDetailForm">
+
+      <div class="general-information">
+        <app-general-information
+            [controlModel]="generalInfoRootControlModel"
+            [controlFormGroup]="assignmentDetailForm.controls.generalInformation.controls.generalInformation">
+        </app-general-information>
+      </div>
+
+
+      <div class="actions-container">
+        <a [routerLink]="['/assignment-detail-second']"> 
+         <button class="ins-primary-button">Next</button>
+        </a>
+      </div>
+    </form>
+
+  </div>
+  
+</div>

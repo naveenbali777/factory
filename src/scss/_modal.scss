@@ -1,0 +1,28 @@
+.modal {
+  &.scrollable-modal-body {
+    .modal-dialog {
+      height: calc(100% - 60px);
+    }
+
+    .modal-content {
+      height: 100%;
+    }
+
+    .modal-header {
+      height: 56px;
+
+      // show ellipsis when title takes more than 90% of space
+      .modal-title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 90%;
+      }
+    }
+
+    .modal-body {
+      height: calc(100% - 60px);
+      overflow: auto;
+    }
+  }
+}

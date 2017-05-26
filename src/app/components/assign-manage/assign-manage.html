@@ -1,0 +1,175 @@
+<div class="container" *ngIf="data">
+	<div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-defalut">
+                <div class="panel-heading text-center main-heading"> Assignment Management</div>
+                <div class="panel-body">
+                    <div class="col-md-12 ele-mar" *ngIf = "selectView">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3 half left-btn text-center" (click)="toggleHighlight('my');" [ngClass]="{'half-active': selectAssing === 'my'}">My Assignments</div>
+                        <div class="col-md-3 half right-btn text-center" (click)="toggleHighlight('observation');" [ngClass]="{'half-active': selectAssing === 'observation'}">Observation Assignments</div>
+                        <div class="col-md-3"></div>
+                    </div>
+                   
+                	<div class="col-md-10 ele-mar">
+                        <span class="filt-heading">QUICK FILTER:</span>
+                        <select [(ngModel)]="selectOpt.s1" class="blue-ftitle" (change)="chooseStatus($event.target.value,'name')">
+                            <option value="" disabled selected>Assigned To Inspector</option>
+                            <option *ngFor="let item of data" [value]="item.name">{{item.name}}</option>
+                        </select>
+                        <select [(ngModel)]="selectOpt.s2" class="blue-ftitle" (change)="chooseStatus($event.target.value,'date')">
+                            <option value="" disabled selected>Inspector Date</option>
+                            <option *ngFor="let item of data" [value]="item.date">{{item.date}}</option>
+                        </select>
+                        <select [(ngModel)]="selectOpt.s3" class="blue-ftitle" (change)="chooseStatus($event.target.value,'location')">
+                            <option value="" disabled selected>Inspector Location</option>
+                            <option *ngFor="let item of data" [value]="item.location">{{item.location}}</option>
+                        </select>
+                        <select [(ngModel)]="selectOpt.s4" class="blue-ftitle" (change)="chooseStatus($event.target.value,'client')">
+                            <option value="" disabled selected>Client</option>
+                            <option *ngFor="let item of data" [value]="item.client">{{item.client}}</option>
+                        </select>
+                        <select [(ngModel)]="selectOpt.s5" class="blue-ftitle" (change)="chooseStatus($event.target.value,'supplier')">
+                            <option value="" disabled selected>Supplier</option>
+                            <option *ngFor="let item of data" [value]="item.supplier">{{item.supplier}}</option>
+                        </select>
+                        <select [(ngModel)]="selectOpt.s6" class="blue-ftitle" (change)="chooseStatus($event.target.value,'factory')">
+                            <option value="" disabled selected>Factory</option>
+                            <option *ngFor="let item of data" [value]="item.factory">{{item.factory}}</option>
+                        </select>
+                        <span class="ftitle" (click) = "clearFilter()">CLEAR FILTER</span>
+                    </div>
+                    <div class="col-md-2 ele-mar"> 
+                        <div class="icon-div pull-right"> 
+                            <input type="text" #search class="form-control form-input search-box" value = "" placeholder="SEARCH">  
+                            <div class="glyphicon glyphicon-search search" (click)="chooseStatus(search.value,'id')"></div>
+                        </div>
+                    </div>      
+
+                    <div class="col-md-12 filt-heading ele-mar">
+                        <span>ASSIGNMENT STATUS: </span>                        
+                        <span class="blue-status" (click)="chooseStatus('Draft','status')">DRAFT</span>
+                        <button class="btn custom btn-d" (click)="chooseStatus('Draft','status')">D</button>
+                        <span class="blue-status" (click)="chooseStatus('Pending','status')">PENDING</span>
+                        <button class="btn custom btn-p" (click)="chooseStatus('Pending','status')">P</button>
+                        <span class="blue-status" (click)="chooseStatus('Assigned','status')">ASSIGNED</span>
+                        <button class="btn custom btn-a" (click)="chooseStatus('Assigned','status')">A</button>
+                        <span class="blue-status" (click)="chooseStatus('Completed','status')">COMPLETED</span>
+                        <button class="btn custom btn-c" (click)="chooseStatus('Completed','status')">C</button>                       
+                    </div>              
+
+                    <div class="col-md-12 ele-mar">
+                        <div class="panel panel-defalut" *ngFor="let item of data | searchFilter: filterValue :filterField">
+                            <div class="panel-body ai-body ai-p">
+                                <div class="col-md-1" *ngIf="item.status == 'Draft'">
+                                    <button class="btn custom1 btn-d">D</button> 
+                                </div>
+                                <div class="col-md-1" *ngIf="item.status == 'Pending'">
+                                    <button class="btn custom1 btn-p">P</button> 
+                                </div>
+                                <div class="col-md-1" *ngIf="item.status == 'Assigned'">
+                                    <button class="btn custom1 btn-a">A</button> 
+                                </div>
+                                <div class="col-md-1" *ngIf="item.status == 'Completed'">
+                                    <button class="btn custom1 btn-c">C</button> 
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="col-md-12 ai-heading"> Assignment: <a *ngIf="item.id == 'Assign-00001'" routerLink="/assignment-detail-first"><span class="ai-value"> {{item.id}}</span></a>
+                                    <span class="ai-value" *ngIf="item.id != 'Assign-00001'"> {{item.id}}</span></div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-address-card ai-icon"></i> 
+                                        <span class="ai-title">{{(selectAssing == 'observation') ? 'Assigned To Organization:' : 'Assigned To Inspector:'}} </span>
+                                        <span class="ai-tvalue">{{item.name}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-calendar ai-icon"></i> 
+                                        <span class="ai-title">Inspector Date: </span>
+                                        <span class="ai-tvalue">{{item.date}}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-map-marker ai-icon"></i> 
+                                        <span class="ai-title">Inspector Location: </span>
+                                        <span class="ai-tvalue">{{item.location}}</span>
+                                    </div>          
+                                </div>
+                                <div class="col-md-1 assign-icon" *ngIf="item.status == 'Draft' || item.status == 'Pending'">
+                                    <i class="glyphicon glyphicon-pencil ai-icon2 pull-right"></i>
+                                    <div *ngIf="item.status == 'Pending'">
+                                        <i class="glyphicon glyphicon-list-alt ai-icon2 pull-right" (click) = "item.assign_menu = !item.assign_menu" ></i>
+                                        <div class="assign-menu" *ngIf="item.assign_menu">
+                                            <ul>
+                                                <li (click)="staticModal.show();selMAssing = 'observation';item.assign_menu = !item.assign_menu;">Assigned To Organization </li>
+                                                <li (click)="staticModal.show();selMAssing = '';item.assign_menu = !item.assign_menu;">Assigned To Inspector </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>                       
+                        
+                    </div>
+                    
+
+                </div>
+            </div> 
+
+            <!--- Modal START -->
+
+            <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    
+                    <div class="panel panel-defalut">
+                        <div class="panel-heading sub-heading">
+                             <span>{{(selMAssing == 'observation') ? 'ASSIGNED TO ORGANIZATION' : 'ASSIGNED TO INSPECTOR'}}</span>
+
+                            <div class="prev-icon pull-right" (click)="staticModal.hide()">
+                                <i class="fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12 ele-mar" *ngIf="selMAssing == 'observation'">
+                                <span class="assign-choice"><input type="radio" name="subOrg" selected> My Organization</span>
+                                <span class="assign-choice pull-right"><input type="radio" name="subOrg"> Third Party</span>
+                                
+                            </div>                          
+                            <div class="col-md-12 ele-mar">
+                                <div class="search-div"> 
+                                    <input type="text" #search2 class="form-control form-input" value = "" placeholder="Search">  
+                                    <div class="glyphicon glyphicon-search search2" (click)="chooseStatus(search2.value,'name')"></div>
+                                </div>
+                            </div>
+                            <div id="mtable" class="col-md-12">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr class="table-head"> 
+                                            <th>Inspector</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of (data | searchFilter: filterValue :filterField) | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index " >
+                                            <td>{{item.name}}</td>
+                                        </tr>                                
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="page = $event" id="1" maxSize="5" directionLinks="true" autoHide="true"></pagination-controls>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <span class="btn btn-txt-color grey" (click)="staticModal.hide()">CANCEL</span>
+                                    <span class="btn btn-color btn-txt-color" (click)="staticModal.hide()">OK</span>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                                                  
+                </div>
+            </div>
+
+            <!--- Modal END -->           
+
+        </div>
+    </div>
+</div>
